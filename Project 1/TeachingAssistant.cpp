@@ -5,7 +5,6 @@ Assingment: Project 1B
 TeachingAssistant.cpp
 */
 #include <string>
-#include "Student.hpp"
 #include "TeachingAssistant.hpp"
 
 

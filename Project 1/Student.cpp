@@ -6,15 +6,15 @@ Student.cpp
 */
 #include <string>
 #include "Student.hpp"
-#include "CourseMember.cpp"
 
 //constructor
 Student::Student(int id, std::string first, std::string last)
 :CourseMember(id, first, last)
  {
-  int id_ = id;
-  std::string first_ = first;
-  std::string last_ = last;
+  // int id_ = id;
+  // std::string first_ = first;
+  // std::string last_ = last;
+
 }
 
 /** @return returns major_; */

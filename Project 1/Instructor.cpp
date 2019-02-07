@@ -6,7 +6,6 @@ Instructor.cpp
 */
 #include <string>
 #include "Instructor.hpp"
-#include "CourseMember.cpp"
 
 //constructor
 Instructor::Instructor(int id, std::string first, std::string last)
