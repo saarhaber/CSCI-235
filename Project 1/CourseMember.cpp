@@ -10,10 +10,9 @@ Date: 1/29/19
 
 #include <string>
 #include "CourseMember.hpp"
-using namespace std;
 
 /** constructor */
-CourseMember::CourseMember(int id, string first, string last) {
+CourseMember::CourseMember(int id, std::string first, std::string last) {
   id_ = id;
   first_name_ = first;
   last_name_ = last;
@@ -25,11 +24,11 @@ int CourseMember::getID() const {
 }
 
 /** @return returns first_name_ */
-string CourseMember::getFirstName() const {
+std::string CourseMember::getFirstName() const {
   return first_name_;
 }
 
 /** @return returns last_name_ */
-string CourseMember::getLastName() const {
+std::string CourseMember::getLastName() const {
   return last_name_;
 }
