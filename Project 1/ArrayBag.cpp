@@ -126,7 +126,45 @@ std::vector<T> ArrayBag<T>::toVector() const
    return bag_contents;
 }  // end toVector
 
+/**
+ @param a_bag to be combined with the contents of this bag
+ @return a new ArrayBag that contains all elements from this bag (items_)
+ and as many elements from the argument a_bag as space requires. Note
+ that it may contain duplicates
+ */
+ ArrayBag<T> bagUnion(const ArrayBag<T>& a_bag) const;
 
+// Note: Because ArrayBag is of fixed size, bagUnion will copy the contents of the calling bag first and
+// then whatever fits from the argument a_bag
+
+ /**
+ @param a_bag to be intersected with the contents of this bag (items_)
+ @return a new ArrayBag that contains the intersection of the contents
+ of this bag and those of the argument a_bag. This intersection does
+ not contain duplicates (e.g. every element occurring in BOTH bags will
+ be found only once in the intersection, no matter how many
+ occurrences in the original bags) as in set intersection A ∩ B
+ */
+ ArrayBag<T> bagIntersectionNoDuplicates(const ArrayBag<T>& a_bag) const;
+
+ /**
+ @param a_bag to be subtracted from this bag
+ @return a new ArrayBag that contains only those items that occur in this
+ bag or in a_bag but not in both,
+ */
+ ArrayBag<T> bagDifference(const ArrayBag<T>& a_bag) const;
+
+
+//Extra Credit:
+/**
+ @param a_bag to be intersected with the contents of this bag
+ @return a new ArrayBag that contains the intersection of the contents
+ of this bag and those of the argument a_bag. This intersection
+ may contain duplicate items (e.g. if object x occurs 5 times in
+ one bag and 3 times in the other, the intersection contains 3
+ occurrences of that item)
+ */
+ ArrayBag<T> bagIntersection(const ArrayBag<T>& a_bag) const;
 
 // PRIVATE
 
