@@ -28,7 +28,7 @@ int ArrayBag<T>::getCurrentSize() const
 
 /**
  @return true if item_count_ == 0, false otherwise
- **/`
+ **/
 template<class T>
 bool ArrayBag<T>::isEmpty() const
 {
@@ -132,7 +132,21 @@ std::vector<T> ArrayBag<T>::toVector() const
  and as many elements from the argument a_bag as space requires. Note
  that it may contain duplicates
  */
- ArrayBag<T> bagUnion(const ArrayBag<T>& a_bag) const;
+ template<class T>
+ ArrayBag<T> ArrayBag<T>::bagUnion(const ArrayBag<T>& a_bag) const
+ {
+	 ArrayBag<T> unionBag;
+
+	 for (int i=0; i<getCurrentSize(); i++) {
+   unionBag.add(items_[i]);
+		}
+
+	for (int j=0; j<a_bag.getCurrentSize(); j++) {
+	unionBag.add(a_bag.items_[j]);
+	}
+
+	return unionBag;
+}
 
 // Note: Because ArrayBag is of fixed size, bagUnion will copy the contents of the calling bag first and
 // then whatever fits from the argument a_bag
@@ -144,29 +158,32 @@ std::vector<T> ArrayBag<T>::toVector() const
  not contain duplicates (e.g. every element occurring in BOTH bags will
  be found only once in the intersection, no matter how many
  occurrences in the original bags) as in set intersection A ∩ B
- */
- ArrayBag<T> bagIntersectionNoDuplicates(const ArrayBag<T>& a_bag) const;
-
- /**
- @param a_bag to be subtracted from this bag
- @return a new ArrayBag that contains only those items that occur in this
- bag or in a_bag but not in both,
- */
- ArrayBag<T> bagDifference(const ArrayBag<T>& a_bag) const;
-
-
-//Extra Credit:
-/**
- @param a_bag to be intersected with the contents of this bag
- @return a new ArrayBag that contains the intersection of the contents
- of this bag and those of the argument a_bag. This intersection
- may contain duplicate items (e.g. if object x occurs 5 times in
- one bag and 3 times in the other, the intersection contains 3
- occurrences of that item)
- */
- ArrayBag<T> bagIntersection(const ArrayBag<T>& a_bag) const;
-
-// PRIVATE
+//  */
+//  template<class T>
+//  ArrayBag<T> bagIntersectionNoDuplicates(const ArrayBag<T>& a_bag) const;
+//
+//  /**
+//  @param a_bag to be subtracted from this bag
+//  @return a new ArrayBag that contains only those items that occur in this
+//  bag or in a_bag but not in both,
+//  */
+//  template<class T>
+//  ArrayBag<T> bagDifference(const ArrayBag<T>& a_bag) const;
+//
+//
+// //Extra Credit:
+// /**
+//  @param a_bag to be intersected with the contents of this bag
+//  @return a new ArrayBag that contains the intersection of the contents
+//  of this bag and those of the argument a_bag. This intersection
+//  may contain duplicate items (e.g. if object x occurs 5 times in
+//  one bag and 3 times in the other, the intersection contains 3
+//  occurrences of that item)
+//  */
+//  template<class T>
+//  ArrayBag<T> bagIntersection(const ArrayBag<T>& a_bag) const;
+//
+// // PRIVATE
 
 /**
  @param target to be found in items_

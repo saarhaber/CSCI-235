@@ -71,20 +71,20 @@ public:
 		 @return a new ArrayBag that contains the intersection of the contents
 		 of this bag and those of the argument a_bag.
 		 **/
-		 ArrayBag<T> bagIntersectionNoDuplicates(const ArrayBag<T>& a_bag) const;
-
-		 /**
-		 @return a new ArrayBag that contains only those items that occur in this
-		 bag or in a_bag but not in both
-		 **/
-		 ArrayBag<T> bagDifference(const ArrayBag<T>& a_bag) const;
-
-		 /**
-		 @return a new ArrayBag that contains the intersection of the contents
-		 of this bag and those of the argument a_bag.
-		 **/
-		 ArrayBag<T> bagIntersection(const ArrayBag<T>& a_bag) const;
-
+		 // ArrayBag<T> bagIntersectionNoDuplicates(const ArrayBag<T>& a_bag) const;
+		 //
+		 // /**
+		 // @return a new ArrayBag that contains only those items that occur in this
+		 // bag or in a_bag but not in both
+		 // **/
+		 // ArrayBag<T> bagDifference(const ArrayBag<T>& a_bag) const;
+		 //
+		 // /**
+		 // @return a new ArrayBag that contains the intersection of the contents
+		 // of this bag and those of the argument a_bag.
+		 // **/
+		 // ArrayBag<T> bagIntersection(const ArrayBag<T>& a_bag) const;
+		 //
 
 
 private:
