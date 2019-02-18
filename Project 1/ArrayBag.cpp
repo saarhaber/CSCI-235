@@ -158,11 +158,32 @@ std::vector<T> ArrayBag<T>::toVector() const
  not contain duplicates (e.g. every element occurring in BOTH bags will
  be found only once in the intersection, no matter how many
  occurrences in the original bags) as in set intersection A ∩ B
-//  */
-//  template<class T>
-//  ArrayBag<T> bagIntersectionNoDuplicates(const ArrayBag<T>& a_bag) const;
-//
-//  /**
+ */
+ template<class T>
+ ArrayBag<T> ArrayBag<T> ::bagIntersectionNoDuplicates(const ArrayBag<T>& a_bag) const
+ {
+	 ArrayBag<T>intersectedBag;
+
+	 for (int i=0; i<getCurrentSize(); i++)
+	  {
+			if (intersectedBag.getIndexOf(items_[i]) == -1)
+			{
+				intersectedBag.add(items_[i]);
+			}
+		}
+
+		for (int j=0; j<a_bag.getCurrentSize(); j++)
+		{
+			if (intersectedBag.getIndexOf(a_bag.items_[j]) == -1)
+			{
+				intersectedBag.add(a_bag.items_[j]);
+			}
+		}
+
+	 return intersectedBag;
+ }
+
+ /**
 //  @param a_bag to be subtracted from this bag
 //  @return a new ArrayBag that contains only those items that occur in this
 //  bag or in a_bag but not in both,
