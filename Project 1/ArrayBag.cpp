@@ -205,19 +205,48 @@ std::vector<T> ArrayBag<T>::toVector() const
  }
 
 
-// //Extra Credit:
-// /**
-//  @param a_bag to be intersected with the contents of this bag
-//  @return a new ArrayBag that contains the intersection of the contents
-//  of this bag and those of the argument a_bag. This intersection
-//  may contain duplicate items (e.g. if object x occurs 5 times in
-//  one bag and 3 times in the other, the intersection contains 3
-//  occurrences of that item)
-//  */
-//  template<class T>
-//  ArrayBag<T> bagIntersection(const ArrayBag<T>& a_bag) const;
-//
-// // PRIVATE
+//Extra Credit:
+/**
+ @param a_bag to be intersected with the contents of this bag
+ @return a new ArrayBag that contains the intersection of the contents
+ of this bag and those of the argument a_bag. This intersection
+ may contain duplicate items (e.g. if object x occurs 5 times in
+ one bag and 3 times in the other, the intersection contains 3
+ occurrences of that item)
+ */
+ template<class T>
+ ArrayBag<T> ArrayBag<T> ::bagIntersection(const ArrayBag<T>& a_bag) const
+{
+	ArrayBag<T> intersectedBag;
+
+	for (int i=0; i<getCurrentSize(); i++)
+	{
+		if (getFrequencyOf(items_[i])<=a_bag.getFrequencyOf(items_[i]))
+		{
+			intersectedBag.add(items_[i]);
+		}
+		else if (!a_bag.contains(items_[i]))
+		{
+			intersectedBag.add(items_[i]);
+		}
+	}
+
+	for (int j=0; j<a_bag.getCurrentSize(); j++)
+	{
+		if (getFrequencyOf(a_bag.items_[j])>a_bag.getFrequencyOf(a_bag.items_[j]))
+		{
+			intersectedBag.add(a_bag.items_[j]);
+		}
+		else if (!contains(a_bag.items_[j]))
+		{
+			intersectedBag.add(a_bag.items_[j]);
+		}
+	}
+
+ return intersectedBag;
+}
+
+// PRIVATE
 
 /**
  @param target to be found in items_

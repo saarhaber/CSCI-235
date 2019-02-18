@@ -24,25 +24,17 @@ Haber.add(405);
 
 ArrayBag<int> Haber3;
 ArrayBag<int> Haber4;
+ArrayBag<int> Haber5;
 std::vector<int> v3;
 std::vector<int> v4;
+std::vector<int> v5;
 
-Haber3 = Haber.bagIntersectionNoDuplicates(Saar);
-v3 = Haber3.toVector();
-std::cout << "v3 ";
+Haber5 = Haber.bagIntersection(Saar);
+v5 = Haber5.toVector();
 
-for (int i=0; i<v3.size(); i++) {
-  std::cout<< v3[i] << " ";
-}
-
-std::cout << std::endl;
-
-Haber4 = Haber.bagDifference(Saar);
-v4 = Haber4.toVector();
-
-std::cout << "v4 ";
-for (int i=0; i<v4.size(); i++) {
-  std::cout<< v4[i] << " ";
+std::cout << "v5 ";
+for (int i=0; i<v5.size(); i++) {
+  std::cout<< v5[i] << " ";
 }
 
 
