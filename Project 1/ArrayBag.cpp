@@ -184,14 +184,27 @@ std::vector<T> ArrayBag<T>::toVector() const
  }
 
  /**
-//  @param a_bag to be subtracted from this bag
-//  @return a new ArrayBag that contains only those items that occur in this
-//  bag or in a_bag but not in both,
-//  */
-//  template<class T>
-//  ArrayBag<T> bagDifference(const ArrayBag<T>& a_bag) const;
-//
-//
+ @param a_bag to be subtracted from this bag
+ @return a new ArrayBag that contains only those items that occur in this
+ bag or in a_bag but not in both,
+ */
+ template<class T>
+ ArrayBag<T> ArrayBag<T> :: bagDifference(const ArrayBag<T>& a_bag) const
+ {
+	 ArrayBag<T> onlyOnceBag;
+
+	 for (int i=0; i<getCurrentSize(); i++)
+	 {
+		 if ((!contains(items_[i]) || !a_bag.contains(items_[i])) && onlyOnceBag.getIndexOf(items_[i])==-1)
+		  {
+				onlyOnceBag.add(items_[i]);
+			}
+	 }
+
+	 return onlyOnceBag;
+ }
+
+
 // //Extra Credit:
 // /**
 //  @param a_bag to be intersected with the contents of this bag
