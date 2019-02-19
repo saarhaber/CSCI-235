@@ -14,6 +14,9 @@
 class CourseMember
 {
 public:
+
+      CourseMember();
+
     /** Parameterized constructor
      @param id the student's unique identifier
      @param first the student's first name
@@ -40,5 +43,6 @@ protected:
 
 
 }; //end CourseMember
+#include "CourseMember.cpp"
 
 #endif /* CourseMember_hpp */

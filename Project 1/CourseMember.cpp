@@ -11,12 +11,18 @@ Date: 1/29/19
 #include <string>
 #include "CourseMember.hpp"
 
+
+
+CourseMember::CourseMember() {
+}
+
 /** constructor */
 CourseMember::CourseMember(int id, std::string first, std::string last) {
   id_ = id;
   first_name_ = first;
   last_name_ = last;
 }
+
 
 /** @return returns id_; */
 int CourseMember::getID() const {
