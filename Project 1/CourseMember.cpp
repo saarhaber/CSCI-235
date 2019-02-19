@@ -38,3 +38,7 @@ std::string CourseMember::getFirstName() const {
 std::string CourseMember::getLastName() const {
   return last_name_;
 }
+
+bool operator==(const CourseMember& left, const CourseMember& right) {
+  return left.id_ == right.id_ && left.first_name_ == right.first_name_ && left.last_name_ == right.last_name_;
+}

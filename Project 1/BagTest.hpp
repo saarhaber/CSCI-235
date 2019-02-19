@@ -15,23 +15,26 @@ public:
  @return returns the populated bag_
  **/
  ArrayBag<CourseMember> testCourseMemberBag();
- // /**
- // @post asks the user for a last name and removes ONE CourseMember
- // with that last name if it finds one
- // @return returns the bag_ after removal if any
- // **/
- // ArrayBag<CourseMember> removeCourseMemberFromBag();
- // /**
- //  @post prints to the standard output all CourseMeber
- //  objects found in bag_, one pre line if the format:
- //  id first_name last_name
- //  **/
- //  void displayCourseMemberBag(const ArrayBag<CourseMember>& a_bag);
+ /**
+ @post asks the user for a last name and removes ONE CourseMember
+ with that last name if it finds one
+ @return returns the bag_ after removal if any
+ **/
+ ArrayBag<CourseMember> removeCourseMemberFromBag();
+ /**
+  @post prints to the standard output all CourseMeber
+  objects found in bag_, one pre line if the format:
+  id first_name last_name
+  **/
+  void displayCourseMemberBag(const ArrayBag<CourseMember>& a_bag);
+
+ArrayBag<CourseMember> removeCourseMemberFromBag(const CourseMember&
+member);
 
 private:
    ArrayBag<CourseMember> bag_;
    ArrayBag<CourseMember> createBagFromInput(std::string input_file);
-   
+
 
 }; // end ArrayBag
 

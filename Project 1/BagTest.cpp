@@ -6,6 +6,7 @@
 #include <iostream>
 #include "CourseMember.hpp"
 #include "ArrayBag.hpp"
+#include <vector>
 
 
 //public
@@ -19,7 +20,7 @@ from each line in the input file, and it adds the corresponding
 CourseMember object to bag_.
 @return returns the populated bag_
 **/
-ArrayBag<CourseMember> BagTest ::testCourseMemberBag()
+ArrayBag<CourseMember> BagTest::testCourseMemberBag()
 {
 std:: cout<< "Please enter a file's name: ";
 ArrayBag<CourseMember> Bag;
@@ -32,22 +33,61 @@ return Bag;
 @post asks the user for a last name and removes ONE CourseMember
 with that last name if it finds one
 @return returns the bag_ after removal if any
-// **/
-// ArrayBag<CourseMember> BagTest ::removeCourseMemberFromBag();
-// /**
-// @post prints to the standard output all CourseMeber
-// objects found in bag_, one pre line if the format:
-// id first_name last_name
-// **/
-// void BagTest ::displayCourseMemberBag(const ArrayBag<CourseMember>& a_bag);
-//
-// /**
-//  @param member to be removed from bag_
-//  @post removes one occurrence of member if found in bag_
-//  @return returns the bag_ after removal if any
-//  **/
-//  ArrayBag<CourseMember> BagTest ::removeCourseMemberFromBag(const CourseMember&
-// member);
+**/
+ArrayBag<CourseMember> BagTest::removeCourseMemberFromBag()
+{
+  std::cout<< "Please enter last name of CourseMember to remove: ";
+  std::string str;
+  getline (std::cin, str);
+
+  std::vector<CourseMember> members = bag_.toVector();
+  int found_index;
+  bool found = false;
+  for (int i=0; i<members.size(); i++) {
+    if (str == members[i].getLastName()) {
+      found_index = i;
+      found = true;
+      break;
+    }
+  }
+  if (found) {
+    bag_.remove(members[found_index]);
+  }
+
+  return bag_;
+}
+
+/**
+ @param member to be removed from bag_
+ @post removes one occurrence of member if found in bag_
+ @return returns the bag_ after removal if any
+ **/
+ ArrayBag<CourseMember>  BagTest::removeCourseMemberFromBag(const CourseMember&
+member)
+{
+  if (bag_.contains(member)) {
+      bag_.remove(member);
+  }
+
+  return bag_;
+}
+/**
+@post prints to the standard output all CourseMeber
+objects found in bag_, one pre line if the format:
+id first_name last_name
+**/
+void BagTest::displayCourseMemberBag(const ArrayBag<CourseMember>& a_bag)
+{
+  std::vector<CourseMember> toPrint = a_bag.toVector();
+  for (int i=0; i<toPrint.size(); i++)
+  {
+    std::cout << toPrint[i].getID() << " "
+              << toPrint[i].getFirstName() << " "
+              << toPrint[i].getLastName() << std::endl;
+  }
+  return;
+}
+
 
 //private
 

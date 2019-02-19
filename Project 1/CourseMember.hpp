@@ -36,6 +36,8 @@ public:
     /** @return returns last_name_ */
     std::string getLastName() const;
 
+    friend bool operator==(const CourseMember& left, const CourseMember& right);
+
 protected:
     int id_; /** the CourseMember's ID */
     std::string first_name_; /** the CourseMember's first name */

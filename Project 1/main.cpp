@@ -43,13 +43,9 @@ int main () {
 //   std::cout<< v5[i] << " ";
 // }
 
-BagTest bagOfMembers;
-ArrayBag<CourseMember> Saar = bagOfMembers.testCourseMemberBag();
-std::vector<CourseMember> v3;
-v3 = Saar.toVector();
-for(int i=80; i<120; i++)
-std::cout<< v3[i].getID() << " "<< v3[i].getFirstName() << " "<< v3[i].getLastName() <<std::endl;
-std::cout<<" ok";
+// BagTest bagOfMembers;
+// ArrayBag<CourseMember> firstBag = bagOfMembers.testCourseMemberBag();
+// displayCourseMemberBag(firstBag);
 
 
 return 0;
