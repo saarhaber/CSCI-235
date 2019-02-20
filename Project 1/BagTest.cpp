@@ -91,7 +91,7 @@ void BagTest::displayCourseMemberBag(const ArrayBag<CourseMember>& a_bag)
 
 //private
 
- ArrayBag<CourseMember> BagTest ::createBagFromInput(std::string input_file)
+ ArrayBag<CourseMember> BagTest::createBagFromInput(std::string input_file)
  {
    std::string str2="";
    std::string str3="";
@@ -108,6 +108,7 @@ void BagTest::displayCourseMemberBag(const ArrayBag<CourseMember>& a_bag)
      std::getline( inFile, tytle);
      //inFile.ignore();
      id = std::stoi(id1);
+     //c_str?
      CourseMember Person(id, str2, str3);
 
     Bag.add(Person);
