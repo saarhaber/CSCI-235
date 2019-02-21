@@ -17,10 +17,7 @@
 #include <string>
 #include <cstring>
 #include <iostream>
-#include "CourseMember.hpp"
-#include "ArrayBag.hpp"
 #include <vector>
-
 #include "BagTest.hpp"
 
 
@@ -33,6 +30,38 @@
   //   bag_=createBagFromInput();
   // }
 
+  ArrayBag<CourseMember> BagTest::createBagFromInput(std::string input_file)
+  {
+    std::string str2;
+    std::string str3;
+    std::string id1;
+    std::string tytle;
+    int id;
+    char delim = ',';
+    std::fstream inFile;
+    inFile.open(input_file.c_str());
+    CourseMember Bag;
+    if(inFile.fail()){
+  		std::cout << "ERROR" << std::endl;
+  		exit(1);
+  	}
+    while (getline( inFile, id1, delim ) &&
+    getline( inFile, str2, delim ) &&
+    getline( inFile, str3, delim ) &&
+    getline( inFile, tytle)) {
+
+      //inFile.ignore();
+      id = atoi(id1.c_str());
+      //c_str?
+      CourseMember Person(id, str2, str3);
+
+     bag_.add(Person);
+     }
+     inFile.close();
+    return bag_;
+
+  }
+
 /**
 @pre the input file is in csv format as follows:
 “id,first_name,last_name,title\n”
@@ -44,10 +73,11 @@ CourseMember object to bag_.
 **/
 ArrayBag<CourseMember> BagTest::testCourseMemberBag()
 {
-std:: cout<< "Please enter a file's name: ";
-ArrayBag<CourseMember> Bag;
+std::cout << "Please enter a file's name: " << std::endl;
 std::string str;
 getline(std::cin, str);
+
+ArrayBag<CourseMember> Bag;
 Bag = createBagFromInput(str);
 return Bag;
 }
@@ -112,30 +142,3 @@ void BagTest::displayCourseMemberBag(const ArrayBag<CourseMember>& a_bag)
 
 
 //private
-
- ArrayBag<CourseMember> BagTest::createBagFromInput(std::string input_file)
- {
-   std::string str2="";
-   std::string str3="";
-   std::string id1="";
-   std::string tytle="";
-   int id=0;
-   std::fstream inFile;
-   inFile.open(input_file.c_str());
-   ArrayBag<CourseMember> Bag;
-   while (!inFile.fail()) {
-     std::getline( inFile, id1, ',' );
-     std::getline( inFile, str2, ',' );
-     std::getline( inFile, str3, ',' );
-     std::getline( inFile, tytle);
-     //inFile.ignore();
-     id = std::stoi(id1);
-     //c_str?
-     CourseMember Person(id, str2, str3);
-
-    Bag.add(Person);
-    }
-    inFile.close();
-   return Bag;
-
- }

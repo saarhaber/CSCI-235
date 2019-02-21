@@ -16,6 +16,11 @@
 #ifndef BAG_TEST_
 #define BAG_TEST_
 
+#include <vector>
+#include <iostream>
+#include "ArrayBag.hpp"
+#include "CourseMember.hpp"
+
 
 class BagTest
 {
@@ -56,5 +61,5 @@ private:
 
 }; // end ArrayBag
 
-#include "BagTest.cpp"
+
 #endif

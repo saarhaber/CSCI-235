@@ -45,6 +45,6 @@ protected:
 
 
 }; //end CourseMember
-#include "CourseMember.cpp"
+//#include "CourseMember.cpp"
 
 #endif /* CourseMember_hpp */
