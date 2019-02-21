@@ -8,34 +8,32 @@
 
 int main () {
 
-// ArrayBag<int> Saar;
-// Saar.add(1);
-// Saar.add(2);
-// Saar.add(2);
-// Saar.add(2);
-// Saar.add(2);
-// Saar.add(3);
-// Saar.add(3);
-// Saar.add(8);
-// ArrayBag<int> Haber;
-// Haber.add(2);
-// Haber.add(3);
-// Haber.add(3);
-// Haber.add(3);
-// Haber.add(551);
-// Haber.add(2);
-// Haber.add(2);
-// Haber.add(87);
-// Haber.add(405);
-//
-// ArrayBag<int> Haber3;
-// ArrayBag<int> Haber4;
-// ArrayBag<int> Haber5;
-// std::vector<int> v3;
-// std::vector<int> v4;
-// std::vector<int> v5;
-//
-// Haber5 = Haber.bagIntersection(Saar);
+ArrayBag<int> Saar;
+Saar.add(11);
+Saar.add(2);
+Saar.add(2);
+Saar.add(2);
+Saar.add(2);
+Saar.add(3);
+Saar.add(3);
+Saar.add(8);
+ArrayBag<int> Haber;
+Haber.add(2);
+Haber.add(3);
+Haber.add(3);
+Haber.add(3);
+Haber.add(551);
+Haber.add(2);
+Haber.add(2);
+Haber.add(87);
+Haber.add(405);
+
+
+ArrayBag<int> Haber5;
+
+std::vector<int> v5;
+
+// Haber5 = Haber.bagUnion(Saar);
 // v5 = Haber5.toVector();
 //
 // std::cout << "v5 ";
@@ -43,9 +41,9 @@ int main () {
 //   std::cout<< v5[i] << " ";
 // }
 
-// BagTest bagOfMembers;
-// ArrayBag<CourseMember> firstBag = bagOfMembers.testCourseMemberBag();
-// displayCourseMemberBag(firstBag);
+BagTest bagOfMembers;
+ArrayBag<CourseMember> firstBag = bagOfMembers.testCourseMemberBag();
+bagOfMembers.removeCourseMemberFromBag();
 
 
 return 0;

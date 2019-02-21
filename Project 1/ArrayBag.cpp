@@ -6,6 +6,20 @@
 /** Implementation file for the class ArrayBag.
  @file ArrayBag.cpp */
 
+ //  Created by Frank M. Carrano and Timothy M. Henry.
+ //  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+
+ //  Modified by Tiziana Ligorio for CSCI 235 Hunter college 2019
+
+ /** Header file for an array-based implementation of the ADT bag.
+  @file ArrayBag.h */
+
+  /**
+  Name: Saar Haber
+  Course: CS 235
+  Assingment: Project 1C
+  Date: 2/20/19
+  */
 #include "ArrayBag.hpp"
 #include <cstddef>
 
@@ -160,23 +174,15 @@ std::vector<T> ArrayBag<T>::toVector() const
  occurrences in the original bags) as in set intersection A ∩ B
  */
  template<class T>
- ArrayBag<T> ArrayBag<T> ::bagIntersectionNoDuplicates(const ArrayBag<T>& a_bag) const
+ ArrayBag<T> ArrayBag<T>::bagIntersectionNoDuplicates(const ArrayBag<T>& a_bag) const
  {
-	 ArrayBag<T>intersectedBag;
+	 ArrayBag<T> intersectedBag;
 
 	 for (int i=0; i<getCurrentSize(); i++)
 	  {
-			if (intersectedBag.getIndexOf(items_[i]) == -1)
+			if (intersectedBag.getIndexOf(items_[i]) == -1 && a_bag.contains(items_[i]))
 			{
 				intersectedBag.add(items_[i]);
-			}
-		}
-
-		for (int j=0; j<a_bag.getCurrentSize(); j++)
-		{
-			if (intersectedBag.getIndexOf(a_bag.items_[j]) == -1)
-			{
-				intersectedBag.add(a_bag.items_[j]);
 			}
 		}
 
@@ -189,15 +195,24 @@ std::vector<T> ArrayBag<T>::toVector() const
  bag or in a_bag but not in both,
  */
  template<class T>
- ArrayBag<T> ArrayBag<T> :: bagDifference(const ArrayBag<T>& a_bag) const
+ ArrayBag<T> ArrayBag<T>::bagDifference(const ArrayBag<T>& a_bag) const
  {
 	 ArrayBag<T> onlyOnceBag;
 
 	 for (int i=0; i<getCurrentSize(); i++)
 	 {
-		 if ((!contains(items_[i]) || !a_bag.contains(items_[i])) && onlyOnceBag.getIndexOf(items_[i])==-1)
+		 if ( onlyOnceBag.getIndexOf(items_[i])==-1
+		 && !a_bag.contains(items_[i]))
 		  {
 				onlyOnceBag.add(items_[i]);
+			}
+	 }
+	 for (int i=0; i<a_bag.getCurrentSize(); i++)
+	 {
+		 if ( onlyOnceBag.getIndexOf(a_bag.items_[i])==-1
+		 && !(contains(a_bag.items_[i])))
+		  {
+				onlyOnceBag.add(a_bag.items_[i]);
 			}
 	 }
 
@@ -221,25 +236,23 @@ std::vector<T> ArrayBag<T>::toVector() const
 
 	for (int i=0; i<getCurrentSize(); i++)
 	{
-		if (getFrequencyOf(items_[i])<=a_bag.getFrequencyOf(items_[i]))
+		if ((getFrequencyOf(items_[i])<=a_bag.getFrequencyOf(items_[i]))
+		&& !intersectedBag.contains(items_[i]))
 		{
-			intersectedBag.add(items_[i]);
-		}
-		else if (!a_bag.contains(items_[i]))
-		{
-			intersectedBag.add(items_[i]);
+			for (int j=0; j<getFrequencyOf(items_[i]); j++) {
+					intersectedBag.add(items_[i]);
+			}
 		}
 	}
 
-	for (int j=0; j<a_bag.getCurrentSize(); j++)
+	for (int k=0; k<a_bag.getCurrentSize(); k++)
 	{
-		if (getFrequencyOf(a_bag.items_[j])>a_bag.getFrequencyOf(a_bag.items_[j]))
+		if ((getFrequencyOf(a_bag.items_[k])>=a_bag.getFrequencyOf(a_bag.items_[k]))
+		&& !intersectedBag.contains(a_bag.items_[k])  )
 		{
-			intersectedBag.add(a_bag.items_[j]);
-		}
-		else if (!contains(a_bag.items_[j]))
-		{
-			intersectedBag.add(a_bag.items_[j]);
+			for (int m=0; m<a_bag.getFrequencyOf(a_bag.items_[k]); m++) {
+					intersectedBag.add(a_bag.items_[k]);
+			}
 		}
 	}
 

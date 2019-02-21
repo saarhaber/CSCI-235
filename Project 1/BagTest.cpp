@@ -1,5 +1,18 @@
+//  Created by Frank M. Carrano and Timothy M. Henry.
+//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
-#include "BagTest.hpp"
+//  Modified by Tiziana Ligorio for CSCI 235 Hunter college 2019
+
+/** Header file for an array-based implementation of the ADT bag.
+ @file ArrayBag.h */
+
+ /**
+ Name: Saar Haber
+ Course: CS 235
+ Assingment: Project 1C
+ Date: 2/20/19
+ */
+
 #include <fstream>
 #include <string>
 #include <cstring>
@@ -8,8 +21,17 @@
 #include "ArrayBag.hpp"
 #include <vector>
 
+#include "BagTest.hpp"
+
 
 //public
+
+  //
+  // BagTest::BagTest() {}
+  // BagTest::BagTest (ArrayBag<CourseMember> people)
+  // {
+  //   bag_=createBagFromInput();
+  // }
 
 /**
 @pre the input file is in csv format as follows:

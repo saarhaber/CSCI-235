@@ -6,6 +6,13 @@
 /** Header file for an array-based implementation of the ADT bag.
  @file ArrayBag.h */
 
+ /**
+ Name: Saar Haber
+ Course: CS 235
+ Assingment: Project 1C
+ Date: 2/20/19
+ */
+
 #ifndef ARRAY_BAG_
 #define ARRAY_BAG_
 
