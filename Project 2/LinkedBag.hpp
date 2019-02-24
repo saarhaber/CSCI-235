@@ -19,7 +19,7 @@ class LinkedBag
 public:
    LinkedBag();
    LinkedBag(const LinkedBag<T>& a_bag); // Copy constructor
-   ~LinkedBag();                       // Destructor 
+   ~LinkedBag();                       // Destructor
    int getCurrentSize() const;
    bool isEmpty() const;
    bool add(const T& new_entry);
@@ -28,7 +28,14 @@ public:
    bool contains(const T& an_entry) const;
    int getFrequencyOf(const T& an_entry) const;
    std::vector<T> toVector() const;
+   LinkedBag<T> bagUnion(const LinkedBag<T>& a_bag) const;
+   LinkedBag<T> bagIntersectionNoDuplicates(const LinkedBag<T>& a_bag const;
+   LinkedBag<T> bagDifference(const LinkedBag<T>& a_bag) const;
+   void operator= (const LinkedBag<T>& a_bag);
+   bool addToEnd(const T& new_entry);
 
+   //Extra Credit:
+   bool removeRetainOrder(const T& an_entry);
 
 private:
     Node<T>* head_ptr_;     // Pointer to first node
