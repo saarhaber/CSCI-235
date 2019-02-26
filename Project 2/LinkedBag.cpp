@@ -182,9 +182,18 @@ bool LinkedBag<T>::contains(const T& an_entry) const
  @return a new LinkedBag that contains all elements from this
  bag (items_)and from a_bag. Note that it may contain duplicates
  */
- LinkedBag<T> bagUnion(const LinkedBag<T>& a_bag) const;
-//Note: this time bag size is not statically constrained as with arrays, so the union will contain all contents
-//of both bags.
+ //Note: this time bag size is not statically constrained as with arrays, so the union will contain all contents
+ //of both bags.
+ template<class T>
+ LinkedBag<T> LinkedBag<T>::bagUnion(const LinkedBag<T>& a_bag) const
+ {
+	 while(a_bag.item_count_!=0) {
+		 add(a_bag.head_ptr_->getItem());
+		 setNext(a_bag.head_ptr_);
+	 }
+	 return this;
+ }
+
 
  /**
  @param a_bag to be intersected with the contents of this (the calling)
@@ -195,21 +204,24 @@ bool LinkedBag<T>::contains(const T& an_entry) const
  found only once in the intersection, no matter how many occurrences in
  the original bags) as in set intersection A ∩ B
  */
- LinkedBag<T> bagIntersectionNoDuplicates(const LinkedBag<T>& a_bag)
-const;
+//  template<class T>
+//  LinkedBag<T> LinkedBag<T>::bagIntersectionNoDuplicates(const LinkedBag<T>& a_bag)
+// const;
 
  /**
  @param a_bag to be subtracted from this bag
  @return a new LinkedBag that contains only those items that occur in
  this bag or in a_bag but not in both, and it does not contain duplicates
  */
- LinkedBag<T> bagDifference(const LinkedBag<T>& a_bag) const;
+ // template<class T>
+ // LinkedBag<T> LinkedBag<T>::bagDifference(const LinkedBag<T>& a_bag) const;
 
 /**
  @param a_bag whose contents are to be copied to this (the calling) bag
  @post this (the calling) bag has same contents as a_bag
- */
-void operator= (const LinkedBag<T>& a_bag);
+//  */
+// template<class T>
+// void LinkedBag<T>::operator= (const LinkedBag<T>& a_bag);
 
  /**
  @param new_entry to be added to the bag
@@ -217,7 +229,8 @@ void operator= (const LinkedBag<T>& a_bag);
  items in the bag
  @return true if added successfully, false otherwise
  */
- bool addToEnd(const T& new_entry);
+ // template<class T>
+ // bool LinkedBag<T>::addToEnd(const T& new_entry);
 
 //Extra Credit:
  /**
@@ -227,7 +240,8 @@ void operator= (const LinkedBag<T>& a_bag);
  the bag
  @return true if removed successfully, false otherwise
  */
- bool removeRetainOrder(const T& an_entry);
+ // template<class T>
+ // bool LinkedBag<T>::removeRetainOrder(const T& an_entry);
 
 
 
