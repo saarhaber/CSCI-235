@@ -4,6 +4,7 @@
 
 /** @file Node.cpp
     Listing 4-2 */
+
 #include "Node.hpp" 
 //#include <cstddef>
 
@@ -12,7 +13,7 @@ Node<T>::Node() : next_(nullptr)
 {
 } // end default constructor
 
-template<class T>
+template<class T> 
 Node<T>::Node(const T& an_item) : item_(an_item), next_(nullptr)
 {
 } // end constructor
