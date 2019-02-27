@@ -198,12 +198,13 @@ bool LinkedBag<T>::contains(const T& an_entry) const
 	 for (int i=0; i<vAdded.size(); i++) {
 		 union_bag.add(vAdded[i]);
 	 }
-	 std::vector<T> vUnion = union_bag.toVector();
- 	 for (int i=0; i<vUnion.size(); i++) {
-		 std::cout<< vUnion[i] << " ";
-		}
 
-		std::cout << std::endl;
+	 // std::vector<T> vUnion = union_bag.toVector();
+ 	 // for (int i=0; i<vUnion.size(); i++) {
+		//  std::cout<< vUnion[i] << " ";
+		// }
+	 //
+		// std::cout << std::endl;
 
 	 return union_bag;
  }
@@ -218,17 +219,36 @@ bool LinkedBag<T>::contains(const T& an_entry) const
  found only once in the intersection, no matter how many occurrences in
  the original bags) as in set intersection A ∩ B
  */
-//  template<class T>
-//  LinkedBag<T> LinkedBag<T>::bagIntersectionNoDuplicates(const LinkedBag<T>& a_bag)
-// const;
+ template<class T>
+ LinkedBag<T> LinkedBag<T>::bagIntersectionNoDuplicates(const LinkedBag<T>& a_bag)
+const {
+	LinkedBag<T> intersectedBag;
+
+	std::vector<T> vThis = toVector();
+
+	for (int i=0; i<vThis.size(); i++) {
+		if (!intersectedBag.contains(vThis[i]) && a_bag.contains(vThis[i])) {
+			intersectedBag.add(vThis[i]);
+		}
+	}
+
+	std::vector<T> v = intersectedBag.toVector();
+	for (int i=0; i<v.size(); i++) {
+	  std::cout<< v[i] << " ";
+	 }
+
+	return intersectedBag;
+}
 
  /**
  @param a_bag to be subtracted from this bag
  @return a new LinkedBag that contains only those items that occur in
  this bag or in a_bag but not in both, and it does not contain duplicates
  */
- // template<class T>
- // LinkedBag<T> LinkedBag<T>::bagDifference(const LinkedBag<T>& a_bag) const;
+ template<class T>
+ LinkedBag<T> LinkedBag<T>::bagDifference(const LinkedBag<T>& a_bag) const {
+
+ }
 
 /**
  @param a_bag whose contents are to be copied to this (the calling) bag

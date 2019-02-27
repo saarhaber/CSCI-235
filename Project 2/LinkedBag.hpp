@@ -29,8 +29,8 @@ public:
    int getFrequencyOf(const T& an_entry) const;
    std::vector<T> toVector() const;
    LinkedBag<T> bagUnion(const LinkedBag<T>& a_bag) const;
-   // LinkedBag<T> bagIntersectionNoDuplicates(const LinkedBag<T>& a_bag) const;
-   // LinkedBag<T> bagDifference(const LinkedBag<T>& a_bag) const;
+   LinkedBag<T> bagIntersectionNoDuplicates(const LinkedBag<T>& a_bag) const;
+   LinkedBag<T> bagDifference(const LinkedBag<T>& a_bag) const;
    // void operator= (const LinkedBag<T>& a_bag);
    // bool addToEnd(const T& new_entry);
 
