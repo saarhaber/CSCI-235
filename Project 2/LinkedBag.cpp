@@ -8,6 +8,7 @@
 #include "LinkedBag.hpp"
 #include "Node.hpp"
 #include <cstddef>
+#include <iostream>
 
 template<class T>
 LinkedBag<T>::LinkedBag() : head_ptr_(nullptr), item_count_(0)
@@ -187,11 +188,20 @@ bool LinkedBag<T>::contains(const T& an_entry) const
  template<class T>
  LinkedBag<T> LinkedBag<T>::bagUnion(const LinkedBag<T>& a_bag) const
  {
-	 while(a_bag.item_count_!=0) {
-		 add(a_bag.head_ptr_->getItem());
-		 setNext(a_bag.head_ptr_);
+	 LinkedBag<T> union_bag (*this);
+	 std::vector<T> vAdded = a_bag.toVector();
+
+	 for (int i=0; i<vAdded.size(); i++) {
+		 union_bag.add(vAdded[i]);
 	 }
-	 return this;
+	 // std::vector<T> vUnion = union_bag.toVector();
+ 	 // for (int i=0; i<vUnion.size(); i++) {
+		//  std::cout<< vUnion[i] << " ";
+		// }
+
+		std::cout << std::endl;
+
+	 return union_bag;
  }
 
 
