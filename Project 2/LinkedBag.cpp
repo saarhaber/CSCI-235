@@ -232,10 +232,10 @@ const {
 		}
 	}
 
-	std::vector<T> v = intersectedBag.toVector();
-	for (int i=0; i<v.size(); i++) {
-	  std::cout<< v[i] << " ";
-	 }
+	// std::vector<T> v = intersectedBag.toVector();
+	// for (int i=0; i<v.size(); i++) {
+	//   std::cout<< v[i] << " ";
+	//  }
 
 	return intersectedBag;
 }
@@ -247,7 +247,30 @@ const {
  */
  template<class T>
  LinkedBag<T> LinkedBag<T>::bagDifference(const LinkedBag<T>& a_bag) const {
+	 LinkedBag<T> onlyOnce;
 
+	 std::vector<T> vThis = toVector();
+
+	 for (int i=0; i<vThis.size(); i++) {
+		 if (!onlyOnce.contains(vThis[i]) && !a_bag.contains(vThis[i])) {
+			 onlyOnce.add(vThis[i]);
+		 }
+	 }
+
+	 std::vector<T> vBag = a_bag.toVector();
+
+	 for (int i=0; i<vBag.size(); i++) {
+		 if (!onlyOnce.contains(vBag[i]) && !this->contains(vBag[i])) {
+			 onlyOnce.add(vBag[i]);
+		 }
+	 }
+
+	 // std::vector<T> v = onlyOnce.toVector();
+ 	 // for (int i=0; i<v.size(); i++) {
+ 	 //   std::cout<< v[i] << " ";
+ 	 //  }
+
+	 return onlyOnce;
  }
 
 /**
