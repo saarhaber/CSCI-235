@@ -188,16 +188,20 @@ bool LinkedBag<T>::contains(const T& an_entry) const
  template<class T>
  LinkedBag<T> LinkedBag<T>::bagUnion(const LinkedBag<T>& a_bag) const
  {
-	 LinkedBag<T> union_bag (*this);
+	 LinkedBag<T> union_bag;
+	 std::vector<T> vThis = toVector();
 	 std::vector<T> vAdded = a_bag.toVector();
 
+	 for (int i=0; i<vThis.size(); i++) {
+	   union_bag.add(vThis[i]);
+	 }
 	 for (int i=0; i<vAdded.size(); i++) {
 		 union_bag.add(vAdded[i]);
 	 }
-	 // std::vector<T> vUnion = union_bag.toVector();
- 	 // for (int i=0; i<vUnion.size(); i++) {
-		//  std::cout<< vUnion[i] << " ";
-		// }
+	 std::vector<T> vUnion = union_bag.toVector();
+ 	 for (int i=0; i<vUnion.size(); i++) {
+		 std::cout<< vUnion[i] << " ";
+		}
 
 		std::cout << std::endl;
 

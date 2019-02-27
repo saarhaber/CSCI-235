@@ -17,11 +17,5 @@ fullName = Saar.bagUnion(Haber);
 
 std::vector<int> v3;
 
-std::cout << fullName.getCurrentSize() << std::endl;
-v3 = fullName.toVector();
-std::cout << fullName.get
 
-for (int i=0; i<v3.size(); i++) {
-  std::cout<<v3[i];
-}
 }
