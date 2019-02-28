@@ -7,13 +7,13 @@ LinkedBag<int> Saar;
 for (int j=1; j<12; j++) {
   Saar.add(j);
 }
-LinkedBag<int> Haber;
-for (int k=8; k<17; k++) {
-  Haber.add(k);
-}
 
-LinkedBag<int> fullName;
-fullName = Saar.bagDifference(Haber);
+Saar.removeRetainOrder(7);
+
+std::vector<int> v = Saar.toVector();
+for (int i=0; i<v.size(); i++) {
+  std::cout << v[i] <<" ";
+}
 
 
 }

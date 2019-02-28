@@ -276,9 +276,15 @@ const {
 /**
  @param a_bag whose contents are to be copied to this (the calling) bag
  @post this (the calling) bag has same contents as a_bag
-//  */
-// template<class T>
-// void LinkedBag<T>::operator= (const LinkedBag<T>& a_bag);
+ */
+template<class T>
+void LinkedBag<T>::operator= (const LinkedBag<T>& a_bag) {
+	std::vector<T> v = a_bag.toVector();
+	clear();
+	for (int i=0; i<v.size(); i++) {
+		add(v[i]);
+	}
+}
 
  /**
  @param new_entry to be added to the bag
@@ -286,8 +292,19 @@ const {
  items in the bag
  @return true if added successfully, false otherwise
  */
- // template<class T>
- // bool LinkedBag<T>::addToEnd(const T& new_entry);
+ template<class T>
+ bool LinkedBag<T>::addToEnd(const T& new_entry) {
+	 Node<T>* cur_ptr_ = head_ptr_;
+	 while (cur_ptr_->getNext() != nullptr) {
+		 cur_ptr_ = cur_ptr_->getNext();
+	 }
+	 Node<T>* last;
+	 last->setItem(new_entry);
+	 cur_ptr_->setNext(last);
+	 item_count_++;
+
+		return true;
+ }
 
 //Extra Credit:
  /**
@@ -297,8 +314,23 @@ const {
  the bag
  @return true if removed successfully, false otherwise
  */
- // template<class T>
- // bool LinkedBag<T>::removeRetainOrder(const T& an_entry);
+ template<class T>
+ bool LinkedBag<T>::removeRetainOrder(const T& an_entry) {
+	 if (isEmpty() || !contains(an_entry)) {
+		 return false;
+	 }
+	 Node<T>* cur_ptr_ = head_ptr_->getNext();
+	 Node<T>* pre_ptr_ = head_ptr_;
+	 while (cur_ptr_->getItem() != an_entry) {
+		 cur_ptr_ = cur_ptr_->getNext();
+		 pre_ptr_ = pre_ptr_->getNext();
+	 }
+	 pre_ptr_->setNext(cur_ptr_->getNext());
+	 delete cur_ptr_;
+	 item_count_--;
+
+		return true;
+ }
 
 
 
