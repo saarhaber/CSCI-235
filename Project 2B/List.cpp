@@ -9,7 +9,7 @@
 #include "List.hpp"
 
 template<class T>
-List<T>::List(): item_count_(0), first_(nullptr), last_(nullptr){} // constructor 
+List<T>::List(): item_count_(0), first_(nullptr), last_(nullptr){} // constructor
 
 
 //copy constructor
@@ -273,6 +273,34 @@ last) sublist to be generated
 @return a sublist containing the item at position consisting of sorted/
 increasing items (first <= position <= last)
 */
+template<class T>
 List<T> List<T>::scanSublist(size_t position) {
+  List<T> sub;
+  if (position > item_count_) {
+    return sub;
+  }
 
+  size_t pos = 0;
+  Node<T>* cur_ptr_ = getPointerTo(position);
+  sub.insert(pos, cur_ptr_ -> getItem());
+
+  cur_ptr_ = cur_ptr_ -> getNext();
+  pos++;
+
+  while (cur_ptr_ -> getNext()!=nullptr &&  (cur_ptr_ ->getItem() <= cur_ptr_ -> getNext()->getItem())) {
+    cur_ptr_ = cur_ptr_ -> getNext();
+    sub.insert(pos, cur_ptr_ -> getItem());
+    pos++;
+  }
+
+
+  cur_ptr_ = first_;
+  pos = 0;
+
+  while (cur_ptr_ -> getPrevious()!=nullptr &&  (cur_ptr_ ->getItem() >= cur_ptr_ -> getPrevious()->getItem())) {
+    cur_ptr_ = cur_ptr_ -> getPrevious();
+    sub.insert(pos, cur_ptr_ ->getItem());
+  }
+
+  return sub;
 }
