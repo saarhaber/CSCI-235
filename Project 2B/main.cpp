@@ -23,19 +23,8 @@ Saar.traverse();
 
 List<int> Sub;
 
-size_t position = 5;
+size_t position = 7;
 Sub = Saar.scanSublist(position);
 Sub.traverse();
 
-position = 1;
-Sub = Saar.scanSublist(position);
-Sub.traverse();
-
-position = 3;
-Sub = Saar.scanSublist(position);
-Sub.traverse();
-
-position = 9;
-Sub = Saar.scanSublist(position);
-Sub.traverse();
 }
