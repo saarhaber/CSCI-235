@@ -59,6 +59,15 @@ public:
      @post traverses the list and prints (std::cout) every item in the list*/
     void traverse();
 
+    /**
+    @pre assumes position is valid, if position is > item_count_ it returns an
+    empty List, also assumes that operators <= and >= are defined on type T
+    @param position contained in the sorted/increasing (first <= position <=
+    last) sublist to be generated
+    @return a sublist containing the item at position consisting of sorted/
+    increasing items (first <= position <= last)
+    */
+    List<T> scanSublist(size_t position);
 
 
 private:
