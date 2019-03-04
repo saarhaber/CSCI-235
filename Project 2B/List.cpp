@@ -5,6 +5,7 @@
 //  Created by Tiziana Ligorio on 10/21/18.
 //  Copyright © 2018 Tiziana Ligorio. All rights reserved.
 //
+//Saar Haber
 
 #include "List.hpp"
 
@@ -300,6 +301,6 @@ List<T> List<T>::scanSublist(size_t position) {
     sub.insert(0, cur_ptr_ ->getItem());
   }
 
-  sub.traverse();
+  //sub.traverse();
   return sub;
 }
