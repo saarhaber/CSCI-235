@@ -52,11 +52,8 @@ and <= holds for second character
 // where Limoni <= Ligorio (==) and Laranga <= Ligorio (<)
  */
 bool operator<=(const CourseMember& lhs, const CourseMember& rhs) {
-  if (
-    (lhs.last_name_.substr(0,2) == rhs.last_name_.substr(0,2)) ||
-    ((lhs.last_name_.substr(0,1) == rhs.last_name_.substr(0,1)) &&
-    (std::stoi((lhs.last_name_.substr(1,1)).c_str()) <= std::stoi((rhs.last_name_.substr(1,1)).c_str())))
-  ) {
+  if (lhs.last_name_[0] == rhs.last_name_[0] && lhs.last_name_[1] <= rhs.last_name_[1])
+  {
     return true;
   }
   return false;
@@ -71,11 +68,8 @@ and >= holds for second character
 // and Limoni >= Ligorio (==) and Ligorio >= Laranga (>)
 */
 bool operator>=(const CourseMember& lhs, const CourseMember& rhs) {
-  if (
-    (lhs.last_name_.substr(0,2) == rhs.last_name_.substr(0,2)) ||
-    ((lhs.last_name_.substr(0,1) == rhs.last_name_.substr(0,1)) &&
-    (std::stoi((lhs.last_name_.substr(1,1)).c_str()) >= std::stoi((rhs.last_name_.substr(1,1)).c_str())))
-  ) {
+  if (lhs.last_name_[0] == rhs.last_name_[0] && lhs.last_name_[1] >= rhs.last_name_[1])
+  {
     return true;
   }
   return false;
