@@ -1,7 +1,7 @@
 /**
 Name: Saar Haber
 Course: CS 235
-Assingment: Project 1A
+Assingment: Project 1A + 2B
 An abstraction for a person in this course.
 A CourseMember will always have a first name, last name and ID.
 All we can do with a CourseMember, for now, is retrieve that information.

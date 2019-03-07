@@ -1,7 +1,7 @@
 /**
 // @file  CourseMember.hpp
 //  Project1A
-//
+//Saar Haber
 //  Created by Tiziana Ligorio on 1/14/19.
 //  Copyright © 2019 Tiziana Ligorio. All rights reserved.
 */
