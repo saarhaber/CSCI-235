@@ -35,6 +35,8 @@ public:
     /** sets gpa_ */
     void setGpa(const double gpa);
 
+    virtual void displayMember() override;
+
 protected:
     std::string major_; /** the Student's major */
     double gpa_; /** the Student's gpa */

@@ -1,6 +1,6 @@
 /**
 // @file  Instructor.hpp
-//  Project1B
+//  Project1B + 2C
 //  Saar Haber
 */
 
@@ -34,6 +34,9 @@ public:
 
     /** sets contact_ */
     void setContact(const std::string contact);
+
+    virtual void displayMember() override;
+
 
 protected:
     std::string office_; /** the Instructor's Office */

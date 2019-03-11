@@ -1,6 +1,6 @@
 /**
 // @file  CourseMember.hpp
-//  Project1A
+//  Project1A + 2C
 //Saar Haber
 //  Created by Tiziana Ligorio on 1/14/19.
 //  Copyright © 2019 Tiziana Ligorio. All rights reserved.
@@ -39,6 +39,8 @@ public:
     friend bool operator==(const CourseMember& left, const CourseMember& right);
     friend bool operator<=(const CourseMember& lhs, const CourseMember& rhs);
     friend bool operator>=(const CourseMember& lhs, const CourseMember& rhs);
+
+    virtual void displayMember() = 0;
 
 protected:
     int id_; /** the CourseMember's ID */

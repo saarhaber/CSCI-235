@@ -1,6 +1,6 @@
 /**
 // @file  TeachingAssistant.hpp
-//  Project1B
+//  Project1B +2C
 //  Saar Haber
 */
 
@@ -10,7 +10,8 @@
 #include <string>
 #include "Student.hpp"
 
-enum ta_role {LAB_ASSISTANT, LECTURE_ASSISTANT, BOTH};
+
+enum ta_role {LAB_ASSISTANT, LECTURE_ASSISTANT, FULL_ASSISTANT};
 
 
 class TeachingAssistant : public Student
@@ -38,6 +39,9 @@ public:
 
     /** sets role_ */
     void setRole(const ta_role role);
+
+    virtual void displayMember() override;
+
 
 private:
     /** the TeachingAssistant's major */

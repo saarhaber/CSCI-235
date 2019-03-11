@@ -1,11 +1,12 @@
 /**
 Name: Saar Haber
 Course: CS 235
-Assingment: Project 1B
+Assingment: Project 1B + 2C
 TeachingAssistant.cpp
 */
 #include <string>
 #include "TeachingAssistant.hpp"
+#include <iostream>
 
 
 //condtructor
@@ -35,4 +36,19 @@ void TeachingAssistant::setHours(const int hours) {
 /** sets role_ */
 void TeachingAssistant::setRole(const ta_role role) {
   role_ = role;
+}
+
+void TeachingAssistant::displayMember(){
+  if (hours_per_week_ < 8)
+  {
+    std::cout << first_name_ << " " << last_name_ << " majors in " <<
+    major_ << " with gpa: " << gpa_ << " working part-time as a " <<
+    role_;
+  }
+  else
+  {
+    std::cout << first_name_ << " " << last_name_ << " majors in " <<
+    major_ << " with gpa: " << gpa_ << " working full-time as a " <<
+    role_;
+  }
 }

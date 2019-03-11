@@ -1,11 +1,12 @@
 /**
 Name: Saar Haber
 Course: CS 235
-Assingment: Project 1B
+Assingment: Project 1B + 2C
 Instructor.cpp
 */
 #include <string>
 #include "Instructor.hpp"
+#include <iostream>
 
 //constructor
 Instructor::Instructor(int id, std::string first, std::string last)
@@ -37,3 +38,8 @@ void Instructor::setOffice(const std::string office) {
 void Instructor::setContact(const std::string contact){
   contact_ = contact;
 }
+
+void Instructor::displayMember(){
+    std::cout << first_name_ << " " << last_name_ <<
+    " - office: 1000C, email: 235Instructors@hunter.cuny.edu"; 
+  }
