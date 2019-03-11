@@ -39,6 +39,11 @@ void populateCmList(List<CourseMember*>& cm_list, std::string input_file)
   getline( inFile, title)) {
 
   id = atoi(id1.c_str());
+
+  if (!inFile.eof()) {
+    title.pop_back();
+  }
+
   addMemberToList(cm_list, id, first, last, title);
 
   }
@@ -63,13 +68,13 @@ first_name, const std::string& last_name, const std::string& title) {
     s_ptr = nullptr;
     }
   else if (title == "Instructor" || title == "Instructor") {
-    Instructor* s_ptr = new Instructor(id, first_name, last_name);
+    Instructor* i_ptr = new Instructor(id, first_name, last_name);
     //select random gpa and major
-    s_ptr->setOffice("1000C");
-    s_ptr->setContact("235Instructors@hunter.cuny.edu");
-    CourseMember* c_ptr = s_ptr;
+    i_ptr->setOffice("1000C");
+    i_ptr->setContact("235Instructors@hunter.cuny.edu");
+    CourseMember* c_ptr = i_ptr;
     cm_list.insert(cm_list.getLength(), c_ptr);
-    s_ptr = nullptr;
+    i_ptr = nullptr;
     }
   else if (title == "Teaching Assistant" || title == "teaching assistent") {
     TeachingAssistant* t_ptr = new TeachingAssistant(id, first_name, last_name);
