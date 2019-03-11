@@ -42,13 +42,22 @@ void TeachingAssistant::displayMember(){
   if (hours_per_week_ < 8)
   {
     std::cout << first_name_ << " " << last_name_ << " majors in " <<
-    major_ << " with gpa: " << gpa_ << " working part-time as a " <<
-    role_;
+    major_ << " with gpa: " << gpa_ << " working part-time as a ";
   }
   else
   {
     std::cout << first_name_ << " " << last_name_ << " majors in " <<
-    major_ << " with gpa: " << gpa_ << " working full-time as a " <<
-    role_;
+    major_ << " with gpa: " << gpa_ << " working full-time as a ";
+  }
+
+  //taking care of role_ and turning it from enum to string
+  if (role_ == 0) {
+    std::cout << "LAB_ASSISTANT";
+  }
+  else if (role_ == 1) {
+    std::cout << "LECTURE_ASSISTANT";
+  }
+  else {
+    std::cout << "FULL_ASSISTANT";
   }
 }
