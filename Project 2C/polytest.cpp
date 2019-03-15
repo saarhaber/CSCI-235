@@ -42,6 +42,7 @@ void populateCmList(List<CourseMember*>& cm_list, std::string input_file)
 
   if (!inFile.eof()) {
     title.pop_back();
+// the popup function is to tace care of the /n in the end of the line
   }
 
   addMemberToList(cm_list, id, first, last, title);
