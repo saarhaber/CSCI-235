@@ -45,6 +45,7 @@ void populateCmList(List<CourseMember*>& cm_list, std::string input_file)
 // the popup function is to tace care of the /n in the end of the line
   }
 
+ // every title is different and wil change what happens in this function
   addMemberToList(cm_list, id, first, last, title);
 
   }
