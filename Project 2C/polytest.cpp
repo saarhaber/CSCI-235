@@ -39,7 +39,7 @@ void populateCmList(List<CourseMember*>& cm_list, std::string input_file)
   getline( inFile, title)) {
 
   id = atoi(id1.c_str());
-  // id of the CourseMember
+  // id of the CourseMember needs to be an integer
 
   if (!inFile.eof()) {
     title.pop_back();
