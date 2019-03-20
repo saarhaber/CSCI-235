@@ -94,6 +94,7 @@ first_name, const std::string& last_name, const std::string& title) {
 /**
 @return a number randomly sampled from
  {4.0, 3.75, 3.5, 3.25, 3.0, 2.75, 2.5, 2.25, 2.0}
+ there are many ways to wright this function
  */
 double randGpa() {
   double gpa_list[9] =  {4.0, 3.75, 3.5, 3.25, 3.0, 2.75, 2.5, 2.25, 2.0};
