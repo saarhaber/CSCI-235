@@ -62,7 +62,7 @@ List<T>::List(const List<T>& a_list)
 } // copy constructor
 
 
-// destructor 
+// destructor
 template<class T>
 List<T>::~List(){ clear();}
 
