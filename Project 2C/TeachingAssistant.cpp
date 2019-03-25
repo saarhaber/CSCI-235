@@ -51,6 +51,7 @@ void TeachingAssistant::displayMember(){
   }
 
   //taking care of role_ and turning it from enum to string
+  //strings must be capitalized
   if (role_ == 0) {
     std::cout << "LAB_ASSISTANT";
   }
