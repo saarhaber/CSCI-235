@@ -44,5 +44,5 @@ private:
   std::stack<City> Route;
 };
 
-#include "RouteMap.cpp"
+//#include "RouteMap.cpp"
 #endif

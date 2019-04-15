@@ -39,34 +39,24 @@ bool RouteMap::readMap(std::string input_file_name){
   char delim1 = ',';
   int i=0;
   std::string cit="";
- // listnames = listnames.substr(0,listnames.length()-6);
   std::istringstream ss(listnames);
   while(getline(ss, cit, ',')) {
     Cities.push_back(cit);
-    // std::cout << "cityName: ";
-    // std::cout <<  cit << std::endl;
 }
-// Cities[Cities.size()-1].pop_back();
+std::string listnames2;
+getline(inFile, listnames2, '\n');
+std::istringstream ss2(listnames2);
 
   char delim2 = '-';
-  while (getline(inFile, cityFrom, delim2) &&
-  getline(inFile, cityTo, delim1)) {
-     // std::cout << "cityFrom: " << cityFrom << " "
-     // << "cityTo: " << cityTo << std::endl;
+  while (getline(ss2, cityFrom, delim2) &&
+  getline(ss2, cityTo, delim1)) {
     for (int i=0; i<Cities.size(); i++) {
       if (Cities[i].getName() == cityFrom) {
         Cities[i].addAdjacent(cityTo);
-        // std::cout << "city: " << Cities[i].getName() << " has " << cityTo <<
-        // " as adjacent" <<std::endl;
       }
     }
   }
   inFile.close();
-  // for (int j=0; j<Cities[0].Adjacents_.size(); j++) {
-  //   std::cout << "city: " << Cities[0].getName() << " has " << Cities[0].Adjacents_[j] <<
-  //   " as adjacent" <<std::endl;
-  // }
-  // std::cout << "size: " << Cities[0].Adjacents_.size();
 };
 
 /**

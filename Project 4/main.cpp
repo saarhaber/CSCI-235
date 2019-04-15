@@ -24,11 +24,11 @@ int main () {
 
 RouteMap firstTry;
 firstTry.readMap("stuff.csv");
-for (int i=0; i<firstTry.getCity(7)->Adjacents_.size(); i++) {
-  std::cout << " Hi " << std::endl;
-  std::cout << firstTry.getCity(7)->Adjacents_[i] << std::endl;
-  std::cout << "sdf " << std::endl;
-}
+// for (int i=0; i<firstTry.getCity(7)->Adjacents_.size(); i++) {
+//   std::cout << " Hi " << std::endl;
+//   std::cout << firstTry.getCity(7)->Adjacents_[i] << std::endl;
+//   std::cout << "sdf " << std::endl;
+// }
 firstTry.isRoute(firstTry.getCity(7), firstTry.getCity(8));
 
 
