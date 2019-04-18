@@ -41,7 +41,7 @@ bool isRoute(City* origin, City* destination);
 
 private:
   std::vector<City> Cities;
-  std::stack<City> Route;
+  std::stack<City*> Route;
 };
 
 //#include "RouteMap.cpp"

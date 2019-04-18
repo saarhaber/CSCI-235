@@ -29,7 +29,7 @@ firstTry.readMap("stuff.csv");
 //   std::cout << firstTry.getCity(7)->Adjacents_[i] << std::endl;
 //   std::cout << "sdf " << std::endl;
 // }
-firstTry.isRoute(firstTry.getCity(7), firstTry.getCity(8));
+firstTry.isRoute(firstTry.getCity(4), firstTry.getCity(8));
 
 
 }

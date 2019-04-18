@@ -24,14 +24,12 @@ bool RouteMap::readMap(std::string input_file_name){
 
   std::fstream inFile;
   inFile.open(input_file_name.c_str());
-  if (inFile.peek() == std::ifstream::traits_type::eof()) {
-    std::cout << "Catching";
-    return false;
-  }
+
   if(inFile.fail()){
     std::cout << "ERROR" << std::endl;
     exit(1);
   }
+
   std::string cityName;
   std::string cityFrom, cityTo;
   std::string listnames;
@@ -66,6 +64,7 @@ std::istringstream ss2(listnames2);
  in the input file
 **/
 City* RouteMap::getCity(size_t position){
+
       for (int i=0; i<Cities.size(); i++) {
         if (i == position) {
           return &(Cities[i]);
@@ -79,54 +78,49 @@ City* RouteMap::getCity(size_t position){
  standard output in the form ORIGIN -> ... -> DESTINATION
 **/
 bool RouteMap::isRoute(City* origin, City* destination){
-  std::cout<< "origin: " << origin->getName() << " "
-  << "destination: " << destination->getName() << std::endl;
 
-  if (!Route.empty()) {
-    if (Route.top().getName() == destination->getName()) {
-      return true;
-    }
-  }
-
-  std::cout<< " city visited now: " << origin->getName() << " with isVisited Status: " << origin->isVisited() <<std::endl;
   if (origin->isVisited() == false) {
-    Route.push(*origin);
+    Route.push(origin);
     origin->makeAVisit();
     if (origin->isVisited()) {
-      std::cout<< " city visited now: " << origin->getName() <<std::endl;
     }
-    std::cout<< " city pushed: " << Route.top().getName() <<std::endl;
   }
 
 
   for (int j=0; j<origin->Adjacents_.size(); j++) {
     for (int i=0; i<Cities.size(); i++) {
-      std::cout << "is city: " << Cities[i].getName() << " adjacent to city: "
-      << origin->getName() << std::endl;
+
       if (getCity(i)->getName() == origin->Adjacents_[j] && !getCity(i)->isVisited()) {
-        std::cout<< getCity(i)->getName()<<" is not visited yet " <<std::endl;
         return (isRoute(getCity(i), destination));
       }
       if (getCity(i)->getName() == origin->Adjacents_[j] && getCity(i)->isVisited()) {
-        std::cout<< getCity(i)->getName()<<" is visited! " <<std::endl;
       }
     }
   }
 
   if (!Route.empty()) {
-    std::cout<< " city popped: " << Route.top().getName() <<std::endl;
+    if (Route.top()->getName() == destination->getName()) {
+      std::string result = Route.top()->getName();
+      Route.pop();
+        while (!Route.empty()){
+          result =  Route.top()->getName() + " -> " + result;
+          Route.pop();
+      }
+      std::cout << result << std::endl;
+      return true;
+    }
+  }
+
+  if (!Route.empty()) {
     Route.pop();
-
-    std::cout<< "new top: " << Route.top().getName() <<std::endl;
-
       if (Route.empty()) {
-        std::cout<< " false ";
         return false;
       }
-    //City * newTop = new City (Route.top().getName());
-    std::cout<< " B ";
-    return isRoute(&Route.top(), destination);
+
+    return isRoute(Route.top(), destination);
   }
-  std::cout<< " C ";
-  return false;
+
+  if (Route.empty()) {
+    return false;
+  }
   }
